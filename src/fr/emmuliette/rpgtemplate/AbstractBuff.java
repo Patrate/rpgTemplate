@@ -2,6 +2,7 @@ package fr.emmuliette.rpgtemplate;
 
 import fr.emmuliette.rpgtemplate.conditions.AbstractCondition;
 import fr.emmuliette.rpgtemplate.conditions.ConditionOwner;
+import fr.emmuliette.rpgtemplate.stat.AbstractStat;
 
 public abstract class AbstractBuff implements ConditionOwner {
 	private String name;

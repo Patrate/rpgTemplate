@@ -3,19 +3,36 @@ package fr.emmuliette.rpgtemplate;
 public abstract class AbstractJob {
 	private AbstractPlayer owner;
 	private String name;
+	private int level;
 	
 	public AbstractJob(String name, AbstractPlayer owner) {
 		this.name = name;
 		this.owner = owner;
+		this.level = 1;
 	}
 	
 	public abstract void apply();
 	
 	public abstract void remove();
 	
-	public abstract void levelUp();
+	public void levelUp() {
+		level += 1;
+		levelUpAction();
+	}
+
+	public void levelDown() {
+		if(level <= 1) {
+			remove();
+			owner.removeJob(this);
+			return;
+		}
+		level -= 1;
+		levelDownAction();
+	}
 	
-	public abstract void levelDown();
+	protected abstract void levelUpAction();
+	
+	protected abstract void levelDownAction();
 
 	public AbstractPlayer getOwner() {
 		return owner;
@@ -23,6 +40,6 @@ public abstract class AbstractJob {
 
 	@Override
 	public String toString() {
-		return name;
+		return name + " (" + level + ")";
 	}
 }

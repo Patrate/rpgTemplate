@@ -1,7 +1,7 @@
 package fr.emmuliette.rpgtemplate.example;
 
 import fr.emmuliette.rpgtemplate.AbstractPlayer;
-import fr.emmuliette.rpgtemplate.AbstractStat;
+import fr.emmuliette.rpgtemplate.stat.AbstractStat;
 
 public class IntelligenceStat extends AbstractStat{
 

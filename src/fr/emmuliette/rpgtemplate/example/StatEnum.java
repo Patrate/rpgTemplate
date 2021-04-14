@@ -1,6 +1,6 @@
 package fr.emmuliette.rpgtemplate.example;
 
-import fr.emmuliette.rpgtemplate.AbstractStat;
+import fr.emmuliette.rpgtemplate.stat.AbstractStat;
 
 public enum StatEnum {
 	INT(IntelligenceStat.class), STR(StrengthStat.class);

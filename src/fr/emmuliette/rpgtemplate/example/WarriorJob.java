@@ -15,17 +15,17 @@ public class WarriorJob extends AbstractJob {
 	}
 
 	@Override
-	public void levelUp() {
-		getOwner().getStat(StatEnum.STR.name()).addValue(3);
-	}
-
-	@Override
 	public void remove() {
 		getOwner().getStat(StatEnum.STR.name()).addValue(-3);
 	}
 
 	@Override
-	public void levelDown() {
+	public void levelUpAction() {
+		getOwner().getStat(StatEnum.STR.name()).addValue(3);
+	}
+
+	@Override
+	public void levelDownAction() {
 		getOwner().getStat(StatEnum.STR.name()).addValue(-3);
 	}
 

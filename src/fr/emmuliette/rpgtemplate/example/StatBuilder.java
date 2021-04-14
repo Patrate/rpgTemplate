@@ -1,6 +1,6 @@
 package fr.emmuliette.rpgtemplate.example;
 
-import fr.emmuliette.rpgtemplate.AbstractStatBuilder;
+import fr.emmuliette.rpgtemplate.stat.AbstractStatBuilder;
 
 public class StatBuilder extends AbstractStatBuilder {
 
