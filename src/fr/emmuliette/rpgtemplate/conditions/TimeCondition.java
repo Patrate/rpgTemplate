@@ -20,7 +20,7 @@ public class TimeCondition extends AbstractCondition {
 	}
 
 	@Override
-	public boolean isActive() {
+	public boolean isValid() {
 		return tick > 0;
 	}
 

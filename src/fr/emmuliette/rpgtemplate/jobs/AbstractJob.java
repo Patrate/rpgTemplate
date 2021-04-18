@@ -1,11 +1,11 @@
-package fr.emmuliette.rpgtemplate;
+package fr.emmuliette.rpgtemplate.jobs;
 
 public abstract class AbstractJob {
-	private AbstractPlayer owner;
+	private JobOwner owner;
 	private String name;
 	private int level;
 	
-	public AbstractJob(String name, AbstractPlayer owner) {
+	public AbstractJob(String name, JobOwner owner) {
 		this.name = name;
 		this.owner = owner;
 		this.level = 1;
@@ -34,7 +34,7 @@ public abstract class AbstractJob {
 	
 	protected abstract void levelDownAction();
 
-	public AbstractPlayer getOwner() {
+	public JobOwner getOwner() {
 		return owner;
 	}
 

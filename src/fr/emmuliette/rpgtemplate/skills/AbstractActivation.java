@@ -1,5 +1,5 @@
 package fr.emmuliette.rpgtemplate.skills;
 
-public class AbstractActivation {
+public abstract class AbstractActivation {
 
 }

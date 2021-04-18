@@ -1,8 +1,8 @@
-package fr.emmuliette.rpgtemplate.stat;
+package fr.emmuliette.rpgtemplate.stats;
 
 import java.util.Map;
 
-public interface StatOwnerInterface {
+public interface StatOwner {
 	
 	public abstract Map<String, AbstractStat> getStats();
 	
