@@ -1,11 +1,18 @@
 package fr.emmuliette.rpgtemplate.stats;
 
+import java.util.HashSet;
+import java.util.Set;
+
+import fr.emmuliette.rpgtemplate.Tickable;
 import fr.emmuliette.rpgtemplate.conditions.AbstractCondition;
 
-public class Buff {
+public class Buff extends Tickable {
+	private Set<BuffListener> listeners;
 	
 	public static void giveBuff(StatOwner target, Buff buff) {
-		target.getStat(buff.getStatName()).addBuff(buff);
+		AbstractStat stat = target.getStat(buff.getStatName());
+		stat.addBuff(buff);
+		buff.listeners.add(stat);
 	}
 	
 	private String name;
@@ -18,6 +25,7 @@ public class Buff {
 		this.condition = condition;
 		this.value = value;
 		this.statName = statName;
+		this.listeners = new HashSet<BuffListener>();
 	}
 	
 	public String getName() {
@@ -46,5 +54,17 @@ public class Buff {
 
 	public void setValue(int value) {
 		this.value = value;
+	}
+
+	@Override
+	public void tick() {
+		condition.tick();
+		if(!condition.isValid()) {
+			for(BuffListener bl:listeners) {
+				bl.removeBuff(this);
+			}
+			listeners.clear();
+			unregister();
+		}
 	}
 }

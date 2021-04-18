@@ -1,5 +1,7 @@
 package fr.emmuliette.rpgtemplate._example;
 
+import fr.emmuliette.rpgtemplate.Ticker;
+
 public class _Main {
 
 	public static void main(String[] args) throws Exception {
@@ -30,6 +32,36 @@ public class _Main {
 		System.out.println("\t>Casting 'bigStrength' (+5 str)");
 		new BigStrengthSkill().cast(p);
 		System.out.println(p);
+
+		Ticker.tick();
+		System.out.println("\t>Tic");
+		System.out.println(p);
+		
+
+		Ticker.tick();
+		System.out.println("\t>Tic");
+		System.out.println(p);
+		
+
+		Ticker.tick();
+		System.out.println("\t>Tic");
+		System.out.println(p);
+		
+
+		Ticker.tick();
+		System.out.println("\t>Tic");
+		System.out.println(p);
+		
+
+		Ticker.tick();
+		System.out.println("\t>Tic");
+		System.out.println(p);
+		
+
+		Ticker.tick();
+		System.out.println("\t>Tic");
+		System.out.println(p);
+		
 	}
 
 }

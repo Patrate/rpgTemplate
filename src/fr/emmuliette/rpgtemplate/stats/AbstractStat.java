@@ -1,11 +1,9 @@
 package fr.emmuliette.rpgtemplate.stats;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
-public abstract class AbstractStat {
+public abstract class AbstractStat implements BuffListener {
 	private final StatOwner owner;
 	private int value;
 	private final String name;
@@ -19,32 +17,17 @@ public abstract class AbstractStat {
 		update();
 	}
 	
-	// TODO call this every X ticks ?
-	public void tick() {
-		boolean changed = false;
-		List<String> removedBuff = new ArrayList<String>();
-		for(Buff b:buff.values()) {
-			if(!b.isValid()) {
-				removedBuff.add(b.getName());
-				changed = true;
-			}
-		}
-		if(changed) {
-			for(String buffName:removedBuff) {
-				buff.remove(buffName);
-			}
-			update();
-		}
-	}
-	
 	public void addBuff(Buff buff) {
 		this.buff.put(buff.getName(), buff);
 		update();
 	}
 	
-	public void removeBuff(String name) {
-		this.buff.remove(name);
-		update();
+	@Override
+	public void removeBuff(Buff buff) {
+		if(this.buff.containsKey(buff.getName())) {
+			this.buff.remove(buff.getName());
+			update();
+		}
 	}
 	
 	public String getName() {
