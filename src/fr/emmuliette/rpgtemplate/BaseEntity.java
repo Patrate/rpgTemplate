@@ -22,18 +22,13 @@ public class BaseEntity implements StatOwner, SkillOwner, RaceOwner, JobOwner {
 	private Set<AbstractSkill<?>> skills;
 	private AbstractRace race;
 
-	private int statPoint;
-	private int jobPoint;
-
-	public BaseEntity(AbstractStatBuilder statBuilder, Class<? extends AbstractRace> race) throws Exception {
+		public BaseEntity(AbstractStatBuilder statBuilder, Class<? extends AbstractRace> race) throws Exception {
 		stats = new HashMap<String, AbstractStat>();
 		for (AbstractStat stat : statBuilder.buildStats(this)) {
 			stats.put(stat.getName(), stat);
 		}
 		this.jobs = new HashMap<Class<? extends AbstractJob>, AbstractJob>();
 		setRace(race);
-		this.statPoint = 0;
-		this.jobPoint = 0;
 	}
 
 	// ===== SKILLS =====
@@ -75,14 +70,6 @@ public class BaseEntity implements StatOwner, SkillOwner, RaceOwner, JobOwner {
 		return jobs.containsKey(job);
 	}
 
-	public void addJobPoint(int newJP) {
-		jobPoint += newJP;
-	}
-
-	public int getJobPoint() {
-		return jobPoint;
-	}
-
 	// ===== RACE =====
 	public AbstractRace getRace() {
 		return race;
@@ -96,14 +83,6 @@ public class BaseEntity implements StatOwner, SkillOwner, RaceOwner, JobOwner {
 
 	public Map<String, AbstractStat> getStats() {
 		return stats;
-	}
-
-	public void addStatPoint(int newSP) {
-		statPoint += newSP;
-	}
-
-	public int getStatPoint() {
-		return statPoint;
 	}
 
 	// ===== OTHER =====
